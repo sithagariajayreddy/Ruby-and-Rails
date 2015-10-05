@@ -1,0 +1,33 @@
+<%@page_title = "section"%>
+<div class = "swctions index">
+  <h2> Sections</h2>
+  
+<div><%= pluralize(@sections.size, 'sections')%> found</div><br>
+  <table class="listing" summary="Section list">
+  <tr class="header">
+   <th>&nbsp;</th>
+   <th>Page ID</th>
+   <th>Sections</th>
+   <th>Content Type</th>
+   <th>Content</th>
+   <th>Visible</th>
+   <th>Actions</th>
+  </tr>
+  <% @sections.each do |section| %>
+  <tr>
+    <td><%= section.position %></td>
+    <td><%= section.page_id %></td>
+    <td><%= section.name %></td>
+    <td><%= section.content_type%></td>
+    <td><%= section.content %></td>
+    <td class="center"><%= section.visible ? 'Yes' : "No" %></td>
+    <td class="action">
+      <%= link_to("show", {:action => 'show', :id => section.id}, :class => 'action show') %>
+      <%= link_to("edit", {:action => 'edit', :id => section.id}, :class => 'action edit') %>
+      <%= link_to("delete", {:action => 'delete',:id => section.id}, :class => 'action delete') %>
+    </td>
+  </tr>
+  <%end%>
+  </table><br><br><br>  
+  <%= link_to("Add New Subject", {:action => 'new'}, :class => 'action new') %>
+  </div>
