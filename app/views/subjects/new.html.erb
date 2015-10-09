@@ -4,10 +4,11 @@
   <%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
 
   <%= render(:partial => "form", :locals => {:f => f})%>
-  <div class="from_buttons">
+  <div class="form_buttons">
     <%= submit_tag("Create Subject")%>
   </div>
   <%end%>
+  <%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>
+
 </div>
 
-<%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>

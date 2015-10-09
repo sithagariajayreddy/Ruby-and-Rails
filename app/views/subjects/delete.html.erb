@@ -1,4 +1,4 @@
-<div class="subject delete">
+<div class="subjects delete">
   <h2>Delete Subject</h2>
 
   <%= form_for(:subject, :url => {:action => 'destroy', :id => @subject.id}) do |f| %>
@@ -6,7 +6,6 @@
   <p> Are you sure you want to permantely delete this subject?</p>
 
   <p class="reference_name"><%= @subject.name %></p>
-  <p><%= @subject.position%></p>
   
   <div class="form_buttons">
     <%= submit_tag("Delete Subject")%>

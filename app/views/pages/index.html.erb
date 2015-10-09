@@ -5,9 +5,8 @@
 <div><%= pluralize(@pages.size, 'page')%> found</div><br>
   <table class="listing" summary="Page list">
   <tr class="header">
-   
-   <th>Subject ID</th> 
    <th>Position</th>
+   <th>Subject</th> 
    <th>Page</th>  
    <th>Permalink</th>
    <th>Visible</th>
@@ -16,14 +15,13 @@
   </tr>
   <% @pages.each do |page| %>
   <tr>
-    
-    <td><%= page.subject_id %></td>
     <td><%= page.position %></td>
+    <td><%= page.subject.name if page.subject%></td>
     <td><%= page.name %></td>
     <td><%= page.permalink%></td>
     <td class="center"><%= page.visible ? 'Yes' : "No" %></td>
     <td class="center"><%= page.sections.size %></td>
-    <td class="action">
+    <td class="actions">
       <%= link_to("show", {:action => 'show', :id => page.id}, :class => 'action show') %>
       <%= link_to("edit", {:action => 'edit', :id => page.id}, :class => 'action edit') %>
       <%= link_to("delete", {:action => 'delete',:id => page.id}, :class => 'action delete') %>
