@@ -1,7 +1,7 @@
 <div class="section delete">
   <h2>Delete Section</h2>
 
-  <%= form_for(:section, :url => {:action => 'destroy', :id => @section.id}) do |f| %>
+  <%= form_for(:section, :url => {:action => 'destroy', :id => @section.id, :page_id => @page.id}) do |f| %>
 
   <p> Are you sure you want to permantely delete this section?</p>
 
@@ -14,4 +14,4 @@
   <% end %>
 </div>
 
-<%= link_to("Back to Liist", {:action => 'index'}, :class => 'back_link')%>
+<%= link_to("Back to List", {:action => 'index', :page_id => @page.id}, :class => 'back_link')%> 

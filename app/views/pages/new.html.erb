@@ -1,7 +1,8 @@
+<%= error_messages_for(@page) %>
 <div class="pages new">
 <h2> Create page</h2>
 
-  <%= form_for(:page, :url => {:action => 'create'}) do |f| %>
+  <%= form_for(:page, :url => {:action => 'create', :subject_id => @subject.id}) do |f| %>
 
   <table summary="Page form fields">
     <tr>
@@ -24,6 +25,10 @@
       <th><%= f.label(:visible)%></th>
       <td><%= f.check_box(:visible)%></td>
     </tr>
+     <tr>
+      <th><%= f.label(:created_at)%></th>
+      <td><%= f.datetime_select(:created_at, :order => [:month, :day, :year])%></td>
+    </tr>
   </table>
 
   <div class="form_buttons">
@@ -32,4 +37,4 @@
   <%end%>
 </div>
 
-<%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>
+<%= link_to("Back To List", {:action => 'index', :subject_id => @subject.id}, :class => 'back to link')%>

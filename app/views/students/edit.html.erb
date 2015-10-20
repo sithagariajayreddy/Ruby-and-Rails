@@ -1,0 +1,15 @@
+<% @page_title = "Edit Student: #{@student.name}" %>
+
+<div class="student edit">
+  <h2>Upadate Student</h2>
+
+  <%= form_for(:student, :url => {:action => 'update', :id => @student.id}) do |f| %>
+
+  <%= render(:partial => "form", :locals => {:f => f})%>
+  <div class="form_buttons">
+    <%= submit_tag("Update Student")%>
+  </div>
+  <%end%>
+</div>
+
+<%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>

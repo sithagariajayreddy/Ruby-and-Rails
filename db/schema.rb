@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930222614) do
+ActiveRecord::Schema.define(version: 20151011125349) do
 
   create_table "pages", force: :cascade do |t|
     t.integer  "subject_id", limit: 4
@@ -47,12 +47,13 @@ ActiveRecord::Schema.define(version: 20150930222614) do
   add_index "sections", ["page_id"], name: "index_sections_on_page_id", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "first_name", limit: 25
-    t.string   "last_name",  limit: 50
-    t.string   "email",      limit: 255, default: "0", null: false
-    t.string   "password",   limit: 8
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "username",        limit: 50
+    t.string   "email",           limit: 255, default: "1", null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "password_digest", limit: 255
   end
 
   create_table "students_sections", id: false, force: :cascade do |t|

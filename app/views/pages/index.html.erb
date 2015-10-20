@@ -22,12 +22,14 @@
     <td class="center"><%= page.visible ? 'Yes' : "No" %></td>
     <td class="center"><%= page.sections.size %></td>
     <td class="actions">
-      <%= link_to("show", {:action => 'show', :id => page.id}, :class => 'action show') %>
-      <%= link_to("edit", {:action => 'edit', :id => page.id}, :class => 'action edit') %>
-      <%= link_to("delete", {:action => 'delete',:id => page.id}, :class => 'action delete') %>
+      <%= link_to("View Sections", {:controller => 'sections', :page_id => page.id}, :class => 'action show') %>
+      <%= link_to("show", {:action => 'show', :id => page.id, :subject_id => @subject.id}, :class => 'action show') %>
+      <%= link_to("edit", {:action => 'edit', :id => page.id, :subject_id => @subject.id}, :class => 'action edit') %>
+      <%= link_to("delete", {:action => 'delete',:id => page.id, :subject_id => @subject.id}, :class => 'action delete') %>
     </td>
   </tr>
   <%end%>
   </table><br><br><br>  
-  <%= link_to("Add New Subject", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to("Add New Subject", {:action => 'new', :subject_id => @subject.id}, :class => 'action new') %>
   </div>
+  <%= link_to("Back to Subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back_link')%>

@@ -1,0 +1,32 @@
+<% @page_title = "Students List" %>
+
+<div class="student index">
+  <h2> Student List</h2>
+
+  <div><%= pluralize(@students.size, 'student')%> found </div>
+
+ <table class='listing' summary="student list">
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <% @students.each do |student|%>
+  <tr>
+  <td><%= student.username %></td>
+  <td><%= student.name %></td>
+  <td><%= mail_to(student.email) %></td>
+  <td class="actions">
+    <%= link_to('show', {:action =>'show', :id => student.id}, :class => 'action show')%>
+    <%= link_to('edit', {:action =>'edit', :id => student.id}, :class => 'action edit')%>
+    <%= link_to('delete', {:action =>'delete', :id => student.id}, :class => 'action delete')%>
+  </td>
+</tr>
+<%end%>
+</table>
+
+<%= link_to('Add New Student', {:action => 'new'}, :class => 'action new')%>
+</div>
+<%= link_to('<<Back to Menu', {:controller => 'access', :action => 'index'}, :class => 'back_link')%>
+

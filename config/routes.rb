@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   
+  get 'student', :to => "access#index"
 
-   match ':controller(/:action(/:id))', :via => [:get,:post]
+  match ':controller(/:action(/:id))', :via => [:get,:post]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

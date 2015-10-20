@@ -19,6 +19,7 @@
     <td class="center"><%= subject.visible ? 'Yes' : "No" %></td>
     <td class="center"><%= subject.pages.size %></td>
     <td class="actions">
+      <%= link_to("View Pages", {:controller => 'pages', :subject_id => subject.id}, :class => 'action show') %>
       <%= link_to("show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
       <%= link_to("edit", {:action => 'edit', :id => subject.id}, :class => 'action edit') %>
       <%= link_to("delete", {:action => 'delete',:id => subject.id}, :class => 'action delete') %>
@@ -28,3 +29,4 @@
   </table><br><br><br>  
   <%= link_to("Add New Subject", {:action => 'new'}, :class => 'action new') %>
   </div>
+  <%= link_to("Back to Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link')%>

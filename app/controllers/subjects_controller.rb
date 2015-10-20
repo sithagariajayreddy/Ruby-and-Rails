@@ -2,6 +2,8 @@ class SubjectsController < ApplicationController
 
    layout "student"
 
+   before_action :confirm_logged_in
+
   def index
     @subjects = Subject.sorted
   end
@@ -25,7 +27,6 @@ class SubjectsController < ApplicationController
     render('new')
   end
  end
-
 
   def edit
     @subject = Subject.find(params[:id])
@@ -56,6 +57,6 @@ class SubjectsController < ApplicationController
 
 private
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(:name, :position, :visible, :created_at)
   end
 end

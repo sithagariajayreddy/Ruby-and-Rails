@@ -1,0 +1,18 @@
+
+<% @apge_title = 'Create Student'%>
+
+
+<div class="student new">
+<h2> Create Subject</h2>
+
+  <%= form_for(:student, :url => {:action => 'create'}) do |f| %>
+
+  <%= render(:partial => "form", :locals => {:f => f})%>
+  <div class="form_buttons">
+    <%= submit_tag("Create Student")%>
+  </div>
+  <%end%>
+  <%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>
+
+</div>
+

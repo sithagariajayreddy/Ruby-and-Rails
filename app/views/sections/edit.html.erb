@@ -1,7 +1,8 @@
+<%= error_messages_for(@section) %>
 <div class="section new">
 <h2> Update Section</h2>
 
-  <%= form_for(:section, :url => {:action => 'update', :id => @section.id}) do |f| %>
+  <%= form_for(:section, :url => {:action => 'update', :id => @section.id, :page_id => @page.id}) do |f| %>
 
   <table summary="section form fields">
     <tr>
@@ -29,6 +30,10 @@
       <th><%= f.label(:content)%></th>
       <td><%= f.text_area(:content, :size => "35x10")%></td>
     </tr>
+     <tr>
+      <th><%= f.label(:created_at)%></th>
+      <td><%= f.datetime_select(:created_at, :order => [:month, :day, :year])%></td>
+    </tr>
   </table>
 
   <div class="form_buttons">
@@ -37,4 +42,4 @@
   <%end%>
 </div>
 
-<%= link_to("Back To List", {:action => 'index'}, :class => 'back to link')%>
+<%= link_to("Back To List", {:action => 'index', :page_id => @page.id}, :class => 'back to link')%>
